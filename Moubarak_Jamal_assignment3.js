@@ -25,7 +25,7 @@ var clientCalls = {
 	},
 	"setBenny": function(newBenny){
 		this.Benny = newBenny;
-	}
+	},
 };
 
 
@@ -54,3 +54,6 @@ console.log("Ten minutes after I checked I had " + clientCalls.calls());
 // Conclusion to Story
 console.log("If I need to visit my clients in the order of how many missed calls I received, " + "the order would be:");
 
+// I couldn't find a simple way to sort these from highest to lowest
+
+console.log("Tony, Benny, Steve, Cleo then Fidel.");
