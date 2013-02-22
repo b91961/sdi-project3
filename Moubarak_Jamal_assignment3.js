@@ -10,10 +10,26 @@ console.log("It's 9am... My alarm clock is annoyingly chirping, " +
 			"missed calls from 5 of my clients " + "Here is a list of the clients " + 
 			"with their customer info and how many times they called:");
 
-// Global variables
-var system = ["DVR", "POS", "PC"],
-	clients = ["Tony", "Cleo", "Fidel", "Benny", "Steve"];
+// Variables
 
+var clientCalls = {
+
+	"Tony": 8,
+	"Cleo": 2,
+	"Fidel": 1,
+	"Benny": 5,
+	"Steve": 4,
+	"calls": function() {
+		var totalMissedCalls = this.Tony + this.Cleo + this.Fidel + this.Benny + this.Steve;
+		return totalMissedCalls;
+	},
+	"setBenny": function(newBenny){
+		this.Benny = newBenny;
+	}
+};
+
+
+// JSON Data
 var handleData = function (json) {
 	for (var i = 0; i < json.clients.length; i++){
 		var client = json.clients[i];
@@ -23,10 +39,18 @@ var handleData = function (json) {
 
 handleData(json2);
 
-
-
 var jsonstring = JSON.stringify(json);
 // console.log(jsonstring);
 
 var receivedjson = JSON.parse(jsonstring);
 // console.log(receivedjson);
+
+console.log("I had a total of " + clientCalls.calls() + " missed calls from my clients all together");
+
+clientCalls.setBenny(10);
+
+console.log("Ten minutes after I checked I had " + clientCalls.calls());
+
+// Conclusion to Story
+console.log("If I need to visit my clients in the order of how many missed calls I received, " + "the order would be:");
+
